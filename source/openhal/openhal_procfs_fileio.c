@@ -1,4 +1,4 @@
-#include "openvision_procfs.h"
+#include "openhal_procfs.h"
 
 struct file* file_open(const char* path, int flags, int rights) {
 	struct file* filp = NULL;

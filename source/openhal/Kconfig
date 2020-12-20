@@ -1,0 +1,8 @@
+menu "Open HAL module"
+
+config OPENHALMODULE
+        tristate "openhal module"
+        default M
+        help
+                Select to enable openhal module.
+endmenu

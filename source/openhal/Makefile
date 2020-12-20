@@ -9,7 +9,7 @@ modules:
 	$(MAKE) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) -C $(KSRC) M=$(shell pwd) modules
 
 strip:
-	$(CROSS_COMPILE)strip openvision.ko --strip-unneeded
+	$(CROSS_COMPILE)strip openhal.ko --strip-unneeded
 
 clean: $(clean_more)
 	rm -fr *.mod.c *.mod *.o .*.cmd *.ko *~
@@ -22,12 +22,12 @@ else
 EXTRA_CFLAGS += -Wenum-compare
 ccflags-y += -D__CHECK_ENDIAN__
 
-openvision-y := \
-	openvision_procfs_fileio.o \
-	openvision_procfs_info.o \
-	openvision_procfs_main.o
+openhal-y := \
+	openhal_procfs_fileio.o \
+	openhal_procfs_info.o \
+	openhal_procfs_main.o
 obj-m := \
-	openvision.o
+	openhal.o
 
 CFLAGS_trace.o := -I$(src)
 

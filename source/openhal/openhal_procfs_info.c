@@ -1,4 +1,4 @@
-#include "openvision_procfs.h"
+#include "openhal_procfs.h"
 
 int get_ov_model(struct seq_file *m, void* data)
 {
@@ -23,42 +23,6 @@ int get_ov_platform(struct seq_file *m, void* data)
 	seq_printf(m, "@STB_PLATFORM@\n");
 #ifdef DEBUG
 	printk(KERN_INFO "platform=@STB_PLATFORM@\n");
-#endif
-	return 0;
-}
-
-int get_ov_visionversion(struct seq_file *m, void* data)
-{
-	seq_printf(m, "@VISIONVERSION@\n");
-#ifdef DEBUG
-	printk(KERN_INFO "visionversion=@VISIONVERSION@\n");
-#endif
-	return 0;
-}
-
-int get_ov_visionrevision(struct seq_file *m, void* data)
-{
-	seq_printf(m, "@VISIONREVISION@\n");
-#ifdef DEBUG
-	printk(KERN_INFO "visionrevision=@VISIONREVISION@\n");
-#endif
-	return 0;
-}
-
-int get_ov_visionlanguage(struct seq_file *m, void* data)
-{
-	seq_printf(m, "@VISIONLANGUAGE@\n");
-#ifdef DEBUG
-	printk(KERN_INFO "visionlanguage=@VISIONLANGUAGE@\n");
-#endif
-	return 0;
-}
-
-int get_ov_developername(struct seq_file *m, void* data)
-{
-	seq_printf(m, "@DEVELOPER_NAME@\n");
-#ifdef DEBUG
-	printk(KERN_INFO "developername=@DEVELOPER_NAME@\n");
 #endif
 	return 0;
 }
@@ -180,24 +144,6 @@ int get_ov_rcidnum(struct seq_file *m, void* data)
 	return 0;
 }
 
-int get_ov_smallflash(struct seq_file *m, void* data)
-{
-	seq_printf(m, "@HAVE_SMALLFLASH@\n");
-#ifdef DEBUG
-	printk(KERN_INFO "smallflash=@HAVE_SMALLFLASH@\n");
-#endif
-	return 0;
-}
-
-int get_ov_middleflash(struct seq_file *m, void* data)
-{
-	seq_printf(m, "@HAVE_MIDDLEFLASH@\n");
-#ifdef DEBUG
-	printk(KERN_INFO "middleflash=@HAVE_MIDDLEFLASH@\n");
-#endif
-	return 0;
-}
-
 int get_ov_imagedir(struct seq_file *m, void* data)
 {
 	seq_printf(m, "@IMAGEDIR@\n");
@@ -275,15 +221,6 @@ int get_ov_ubinize(struct seq_file *m, void* data)
 	seq_printf(m, "@UBINIZE_ARGS@\n");
 #ifdef DEBUG
 	printk(KERN_INFO "ubinize=@UBINIZE_ARGS@\n");
-#endif
-	return 0;
-}
-
-int get_ov_forcemode(struct seq_file *m, void* data)
-{
-	seq_printf(m, "@FORCE@\n");
-#ifdef DEBUG
-	printk(KERN_INFO "forcemode=@FORCE@\n");
 #endif
 	return 0;
 }
@@ -432,15 +369,6 @@ int get_ov_ci(struct seq_file *m, void* data)
 	return 0;
 }
 
-int get_ov_vfdsymbol(struct seq_file *m, void* data)
-{
-	seq_printf(m, "@HAVE_VFDSYMBOL@\n");
-#ifdef DEBUG
-	printk(KERN_INFO "vfdsymbol=@HAVE_VFDSYMBOL@\n");
-#endif
-	return 0;
-}
-
 int get_ov_fhdskin(struct seq_file *m, void* data)
 {
 	seq_printf(m, "@HAVE_FHDSKIN@\n");
@@ -449,3 +377,77 @@ int get_ov_fhdskin(struct seq_file *m, void* data)
 #endif
 	return 0;
 }
+
+#ifdef DISTRO_IS_OPENVISION
+int get_ov_visionversion(struct seq_file *m, void* data)
+{
+	seq_printf(m, "@VISIONVERSION@\n");
+#ifdef DEBUG
+	printk(KERN_INFO "visionversion=@VISIONVERSION@\n");
+#endif
+	return 0;
+}
+
+int get_ov_visionrevision(struct seq_file *m, void* data)
+{
+	seq_printf(m, "@VISIONREVISION@\n");
+#ifdef DEBUG
+	printk(KERN_INFO "visionrevision=@VISIONREVISION@\n");
+#endif
+	return 0;
+}
+
+int get_ov_visionlanguage(struct seq_file *m, void* data)
+{
+	seq_printf(m, "@VISIONLANGUAGE@\n");
+#ifdef DEBUG
+	printk(KERN_INFO "visionlanguage=@VISIONLANGUAGE@\n");
+#endif
+	return 0;
+}
+
+int get_ov_developername(struct seq_file *m, void* data)
+{
+	seq_printf(m, "@DEVELOPER_NAME@\n");
+#ifdef DEBUG
+	printk(KERN_INFO "developername=@DEVELOPER_NAME@\n");
+#endif
+	return 0;
+}
+
+int get_ov_smallflash(struct seq_file *m, void* data)
+{
+	seq_printf(m, "@HAVE_SMALLFLASH@\n");
+#ifdef DEBUG
+	printk(KERN_INFO "smallflash=@HAVE_SMALLFLASH@\n");
+#endif
+	return 0;
+}
+
+int get_ov_middleflash(struct seq_file *m, void* data)
+{
+	seq_printf(m, "@HAVE_MIDDLEFLASH@\n");
+#ifdef DEBUG
+	printk(KERN_INFO "middleflash=@HAVE_MIDDLEFLASH@\n");
+#endif
+	return 0;
+}
+
+int get_ov_forcemode(struct seq_file *m, void* data)
+{
+	seq_printf(m, "@FORCE@\n");
+#ifdef DEBUG
+	printk(KERN_INFO "forcemode=@FORCE@\n");
+#endif
+	return 0;
+}
+
+int get_ov_vfdsymbol(struct seq_file *m, void* data)
+{
+	seq_printf(m, "@HAVE_VFDSYMBOL@\n");
+#ifdef DEBUG
+	printk(KERN_INFO "vfdsymbol=@HAVE_VFDSYMBOL@\n");
+#endif
+	return 0;
+}
+#endif
